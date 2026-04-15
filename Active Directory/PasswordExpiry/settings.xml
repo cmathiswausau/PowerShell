@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<PasswordChange>
+<Variables>
+<ALL>SMTPHost,CustomerName,FromEmail,expireindays,pwdchar,pastPwd,passComplex,FailureEmail,EnableSslEmail,smtpport,Delay,testuseraccountemail,TestingMode</ALL>
+<Boolian>passComplex,EnableSslEmail,TestingMode</Boolian>
+</Variables>
+<Settings>
+    <!--SMTP Host-->
+        <SMTPHost>smtp.sendgrid.net</SMTPHost>
+    <!--Customer Name-->
+        <CustomerName>Generic</CustomerName>
+    <!--Who is the e-mail from-->
+        <FromEmail>PasswordNotification@example.com</FromEmail>
+    <!--How many days prior to expiration do you want to start sending email?-->
+        <expireindays>15</expireindays>
+    <!--How many characters are required for the password-->
+        <pwdchar>12</pwdchar>
+    <!--How many previous passwords are remembered Must have a space in front of the number below-->
+        <pastPwd> 24</pastPwd>
+    <!--Password Complexity set to true or false?-->
+        <passComplex>true</passComplex>
+    <!--Who is going to get the notification that user does not have a valid email address?-->
+        <FailureEmail>help@example.com</FailureEmail>
+    <!--SSL Required for email (example is false)-->
+        <EnableSslEmail>true</EnableSslEmail>
+    <!--Which Port is required by client Exchange/O365-->
+        <smtpport>587</smtpport>
+    <!--Delay between emails (in Seconds) (noticed that there are too many emails per minute so they are being rejected, recommend 60 seconds)-->
+        <Delay>15</Delay>
+    <!--is this in testing mode?-->
+        <TestingMode>true</TestingMode>
+    <!-- Test User account who's account are we going to test with-->
+        <testuseraccountemail></testuseraccountemail>
+
+</Settings>
+<Message>
+<Complexity><p1><![CDATA[
+	&emsp;5. It must contain at least one character from the following groups of characters:<br />
+&emsp;&emsp;a. Uppercase letters (A-Z)<br />
+&emsp;&emsp;b. Lowercase letters (a-z)<br />
+&emsp;&emsp;c. Numbers (0-9)<br />
+&emsp;&emsp;d. Symbols (!&#64;#&#36;%^&amp;*...)<br /> 
+]]>
+</p1></Complexity>
+<Main><p1><![CDATA[
+        <html>
+        <head>
+	        <title></title>
+	        <meta http-equiv="Content-Language" content="en-us"><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	        <style type="text/css">.auto-style1 { text-align: left }
+	        </style>
+        </head>
+        <body>
+        <div align="center">
+        <table border="1" cellpadding="0" cellspacing="0">
+	        <tbody>
+		        <tr>
+			        <td>
+			        <table border="0" width="100%">
+				        <tbody>
+					        <tr>
+						        <td align="left" width="306"><font face="Times New Roman"><img alt="" border="0" src="http://www.example.com/wp-content/uploads/2014/02/homepage.png" /></font></td>
+						        <td align="center" width="333">&nbsp;</td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">
+						        <hr color="#808000" size="1" /></td>
+					        </tr>
+					        <tr>
+						        <td bgcolor="#003366" colspan="2"><b><font color="#ffffff" face="Arial">&emsp;Password Expiration Notification</font></b></td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">
+						            <p class="auto-style1"><br />
+						            <font color="#000000" face="Arial" size="2">&emsp;Dear $Name,<br />
+						            <br />
+						            &emsp;Your Domain password at $CustomerName will expire in $daystoexpire days. Please change it as soon as possible.<br />
+						            <br />
+                                    &emsp;If you work remotely, you need to be sure to change your password before the last day.  Once your password has expired, you will no longer be able to connect to the VPN and will need to contact IT support or come into the office to change it.<br />
+						            <br />
+						            &emsp;To change your password, follow the method below:<br />
+						            <br />
+						            <br />
+                                    &emsp;1. On your Windows computer<br />
+                                    &emsp;&emsp;a. Log onto your computer as usual and make sure you are connected to the internet.<br />
+                                    &emsp;&emsp;b. If you are not in the office, connect to the VPN. <br />
+                                    &emsp;&emsp;c. Press Ctrl-Alt-Del and click on &quot;Change Password&quot;.<br />
+                                    &emsp;&emsp;d. Fill in your old password and set a new password. See the password requirements below.<br />
+                                    &emsp;&emsp;e. Press OK to return to your desktop. <br />
+                                    &emsp;2. Update the passwords in your email client on your phone and you may need to update Outlook as well.<br />
+                                    <br />
+                                    &emsp;Your new password should NOT be the same as your previous one with just one character changed. <br />
+                                    &emsp;The new password must meet the minimum requirements set forth in our corporate policies including:<br />
+                                    &emsp;1. It must be at least $pwdchar characters long.<br />
+                                    &emsp;2. It cannot match any of your past $pastPwd passwords.<br />
+                                    &emsp;3. It cannot contain characters which match 3 or more consecutive characters of your username.<br />
+                                    &emsp;4. You cannot change your password more often than once in a 24 hour period.<br />
+]]>
+</p1>
+<p2><![CDATA[
+                                    <br />
+        						</td>
+		        			</tr>
+				        	<tr>
+        						<td align="center" colspan="2">
+		        				<p align="left"><font color="#000000" face="Arial" size="2">&emsp;Thank you,</font></p>
+				        		</td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">
+						        <p align="left"><font face="Arial" size="2">&emsp;The example Group</font><br />
+						        <font color="#000000" face="Arial" size="2">&emsp;www.example.com<br />
+						        &emsp;715-848-9865</font></p>
+						        </td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">&nbsp;</td>
+					        </tr>
+					        <tr>
+						        <td align="center" colspan="2">
+						        <hr color="#808000" size="1" /></td>
+					        </tr>
+					        <tr>
+						        <td align="center" colspan="2"><font face="Arial" size="1">The example Group | 225077 Rib Mountain Dr | Wausau, WI 54401</font></td>
+					        </tr>
+					        <tr>
+						        <td align="center" colspan="2"><font face="Arial" size="1">www.example.com</font></td>
+					        </tr>
+				        </tbody>
+			        </table>
+			        </td>
+		        </tr>
+	        </tbody>
+        </table>
+        </div>
+        </body>
+        </html>
+]]>
+</p2>
+</Main>
+<FailedUsers><p1><![CDATA[
+        <html>
+        <head>
+	        <title></title>
+	        <meta http-equiv="Content-Language" content="en-us"><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	        <style type="text/css">.auto-style1 { text-align: left }
+	        </style>
+        </head>
+        <body>
+        <div align="center">
+        <table border="1" cellpadding="0" cellspacing="0">
+	        <tbody>
+		        <tr>
+			        <td>
+			        <table border="0" width="100%">
+				        <tbody>
+					        <tr>
+						        <td align="left" width="306"><font face="Times New Roman"><img alt="" border="0" src="http://www.example.com/wp-content/uploads/2014/02/homepage.png" /></font></td>
+						        <td align="center" width="333">&nbsp;</td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">
+						        <hr color="#808000" size="1" /></td>
+					        </tr>
+					        <tr>
+						        <td bgcolor="#003366" colspan="2"><b><font color="#ffffff" face="Arial">&emsp;$CustomerName`: Password Expiration Notification</font></b></td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">
+						            <p class="auto-style1"><br />
+						            &emsp;The following users at $CustomerName do not have email addresses associated with them.<br />
+						            <br />
+						            &emsp;To correct this please edit the user in Active Directory Users and Computers and update the Email Address location on the General Tab.<br />
+						            <br />
+						            <center>
+                                    <table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>
+                                        <tr>
+                                            <td width=150 valign=top style='width:150pt;border:solid black 1.0pt;border-right:white;background:black;padding:0in 5.4pt 0in 5.4pt'>
+                                                <p style='margin-bottom:0in;line-height:normal;'><b><span style='color:white'>Username<o:p></o:p></span></b></p>
+                                            </td>
+                                            <td width=150 valign=top style='width:150pt;border:solid black 1.0pt;border-left:white;background:black;padding:0in 5.4pt 0in 5.4pt'>
+                                                <p style='margin-bottom:0in;line-height:normal;'><b><span style='color:white'>Display Name<o:p></o:p></span></b></p>
+                                            </td>
+                                            <td width=150 valign=top style='width:150pt;border:solid black 1.0pt;border-right:white;background:black;padding:0in 5.4pt 0in 5.4pt'>
+                                                <p style='margin-bottom:0in;line-height:normal;'><b><span style='color:white'>Days to Expire<o:p></o:p></span></b></p>
+                                            </td>
+                                          </tr>
+]]>
+</p1>
+<p2><![CDATA[
+                                    </table>
+                                    </center>
+                                    <br />
+                                    <br />
+                                    <br />
+						        </td>
+					        </tr>
+
+					        <tr>
+						        <td align="center" colspan="2">
+						            <p align="left"><font color="#000000" face="Arial" size="2">&emsp;Thank you,</font></p>
+						        </td>
+					        </tr>
+					        <tr>
+						        <td colspan="2">
+					    	        <p align="left"><font face="Arial" size="2">&emsp;The example Group</font><br />
+				    		        <font color="#000000" face="Arial" size="2">&emsp;www.example.com<br />
+			    			        &emsp;715-848-9865</font></p>
+		    			        </td>
+	    				    </tr>
+    					    <tr>
+						        <td colspan="2">&nbsp;</td>
+					        </tr>
+					        <tr>
+						        <td align="center" colspan="2">
+						        <hr color="#808000" size="1" /></td>
+					        </tr>
+	    				    <tr>
+						        <td align="center" colspan="2"><font face="Arial" size="1">The example Group | 225077 Rib Mountain Dr | Wausau, WI 54401</font></td>
+	    				    </tr>
+	    				    <tr>
+	    				        <td align="center" colspan="2"><font face="Arial" size="1">www.example.com</font></td>
+	    			        </tr>
+	    			    </tbody>
+	    		    </table>
+	    		    </td>
+               </tr>
+    	    </tbody>
+        </table>
+        </div>
+        </body>
+        </html>
+]]>
+</p2></FailedUsers>
+
+</Message>
+</PasswordChange>
